@@ -21,7 +21,7 @@ class TestSuiteTests(unittest.TestCase):
             if pattern_emerg.findall(line):
                 test_cases[i].add_error_info('Emerg')
             elif pattern_error.findall(line):
-                test_cases[i].add_failure_info('Error')
+                test_cases[i].add_skipped_info('Error')
             i+=1
         ts = [TestSuite("InfoLog", test_cases)]
         print(TestSuite.to_xml_string(ts))
