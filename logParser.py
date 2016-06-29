@@ -19,9 +19,9 @@ class TestSuiteTests(unittest.TestCase):
         for line in lines:
             test_cases.append(TestCase(line, '', '','', ''))
             if pattern_emerg.findall(line):
-                test_cases[i].add_error_info('Emerg')
+                test_cases[i].add_error_info('Emerg: ' +args.baseURL )
             elif pattern_error.findall(line):
-                test_cases[i].add_skipped_info('Error')
+                test_cases[i].add_skipped_info('Error: ' +args.baseURL)
             i+=1
         ts = [TestSuite("InfoLog", test_cases)]
         print(TestSuite.to_xml_string(ts))
